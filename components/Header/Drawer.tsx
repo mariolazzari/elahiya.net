@@ -7,6 +7,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { Links } from "./Links";
+import { Separator } from "../ui/separator";
+import { Logo } from "../Logo";
 
 export function Drawer() {
   return (
@@ -17,9 +20,14 @@ export function Drawer() {
 
       <SheetContent className="w-64 border border-muted shadow-lg">
         <SheetHeader>
-          <SheetTitle>Elahiya</SheetTitle>
-          <SheetDescription>Pro Language School</SheetDescription>
+          <SheetTitle>
+            <Logo />
+          </SheetTitle>
+          <SheetDescription>Elahiya Pro Language School</SheetDescription>
         </SheetHeader>
+        <Separator className="h-0.5 bg-muted my-8" />
+
+        <Links isDrawer />
       </SheetContent>
     </Sheet>
   );
