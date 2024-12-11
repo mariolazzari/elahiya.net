@@ -3,6 +3,8 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Layout } from "@/types/Layout";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,7 +27,11 @@ function RootLayout({ children }: Layout) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${inter.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <Header />
+          <main className="flex flex-col items-center p-4 h-[calc(100dvh-100px)] overflow-y-auto">
+            {children}
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
