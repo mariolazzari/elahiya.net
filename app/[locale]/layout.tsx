@@ -7,6 +7,7 @@ import { ThemeProvider } from "next-themes";
 import { Layout } from "@/types/Layout";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -37,6 +38,10 @@ async function RootLayout({ children, params }: Layout) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <GoogleAnalytics gaId={process.env.GA_TRACKING_ID!} />
+      </head>
+
       <body className={`${inter.variable} ${inter.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <NextIntlClientProvider messages={messages}>
