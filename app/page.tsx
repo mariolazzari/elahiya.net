@@ -23,7 +23,7 @@ export default function Home() {
       <div className="flex gap-4 mt-4">
         {buttons.map(b => (
           <Link key={b.href} href={b.href}>
-            <Button className="w-32">
+            <Button className="w-32 font-semibold">
               {b.icon} {b.label}
             </Button>
           </Link>

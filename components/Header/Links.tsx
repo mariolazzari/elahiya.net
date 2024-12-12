@@ -32,7 +32,10 @@ export function Links({ isDrawer = false }: LinksProps) {
     >
       {links.map(link => (
         <li key={link.href}>
-          <Link className="flex items-center gap-1" href={link.href}>
+          <Link
+            className="flex items-center gap-1 hover:text-primary"
+            href={link.href}
+          >
             {link.icon} {link.label}
           </Link>
         </li>

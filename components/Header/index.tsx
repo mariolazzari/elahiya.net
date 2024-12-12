@@ -7,7 +7,7 @@ import { Locales } from "./Locales";
 export function Header() {
   return (
     <>
-      <header className="flex justify-between items-center p-4 h-[50px]">
+      <header className="flex justify-between items-center px-4 h-[50px]">
         <Locales />
         <nav className="hidden md:block">
           <Links />
