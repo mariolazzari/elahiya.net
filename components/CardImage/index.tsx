@@ -10,12 +10,12 @@ import { CardImageProps } from "./CardImageProps";
 
 export function CardImage({ title, text, imagePath }: CardImageProps) {
   return (
-    <Card className="w-[350px] hover:border-primary">
+    <Card className="w-[350px] hover:border-primary border-muted">
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-primary font-semibold">{title}</CardTitle>
         <CardDescription></CardDescription>
       </CardHeader>
-      <CardContent className="w-[350px]">
+      <CardContent className="w-[350px] shadow-xl">
         <Image
           className="mx-auto my-4 rounded-lg"
           src={imagePath}

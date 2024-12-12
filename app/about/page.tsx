@@ -22,8 +22,10 @@ function AboutPage() {
 
   return (
     <>
-      <div className="max-w-xl p-4 rounded-xl shadow-xl mx-auto my-4 bg-gradient-to-br from-background to-muted">
-        <h2 className="text-4xl text-primary my-4">About us</h2>
+      <div className="max-w-xl p-4 rounded-xl shadow-xl mx-auto my-4 bg-gradient-to-br from-background to-muted border border-muted hover:border-primary shadow-xl">
+        <h2 className="text-4xl text-primary my-4 font-bold text-center">
+          About us
+        </h2>
         <p className="text-justify">
           Elahiya Pro Language school has been providing English languages,
           TOEFL, IELTS and French classes in Rudehen for 20 years.It is located
