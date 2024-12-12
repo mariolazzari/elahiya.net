@@ -7,7 +7,10 @@ const robots = (): MetadataRoute.Robots => {
       allow: "/",
       disallow: "/private/",
     },
-    sitemap: "https://elahiya.net/sitemap.xml",
+    sitemap: [
+      "https://elahiya.net/en/sitemap.xml",
+      "https://elahiya.net/fa/sitemap.xml",
+    ],
   };
 };
 
