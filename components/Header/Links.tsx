@@ -1,22 +1,25 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { LinksProps } from "./LinksProps";
 import { Home, Info, MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Links({ isDrawer = false }: LinksProps) {
+  const t = useTranslations("Menu");
+
   const size = isDrawer ? 32 : 24;
   const links = [
     {
-      label: "Home",
+      label: t("home"),
       href: "/",
       icon: <Home size={size} />,
     },
     {
-      label: "About",
+      label: t("about"),
       href: "/about",
       icon: <Info size={size} />,
     },
     {
-      label: "Find",
+      label: t("map"),
       href: "/map",
       icon: <MapPin size={size} />,
     },
