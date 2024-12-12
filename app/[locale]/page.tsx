@@ -4,6 +4,23 @@ import { Button } from "@/components/ui/button";
 import { Info, Map } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Elahiya Pro Language",
+    default: "Elahiya Pro Language",
+  },
+  description:
+    "Elahiya Pro Language school has been providing English languages, TOEFL, IELTS and French classes in Rudehen for 20 years.It is located at the 6th Bustan",
+  alternates: {
+    canonical: "https://elahiya.net",
+    languages: {
+      en: "https://elahiya.net/en",
+      fa: "https://elahiya.net/fa",
+    },
+  },
+};
 
 export default function Home() {
   const t = useTranslations("Home");

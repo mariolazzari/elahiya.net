@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "About us",
   alternates: {
     canonical: "/about",
+    languages: {
+      en: "https://elahiya.net/en/about",
+      fa: "https://elahiya.net/fa/about",
+    },
   },
 };
 

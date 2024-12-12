@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   title: "Find us",
   alternates: {
     canonical: "/map",
+    languages: {
+      en: "https://elahiya.net/en/map",
+      fa: "https://elahiya.net/fa/map",
+    },
   },
 };
 

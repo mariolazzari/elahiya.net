@@ -1,5 +1,4 @@
 import "../globals.css";
-import type { Metadata } from "next";
 import { getMessages } from "next-intl/server";
 import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
@@ -15,22 +14,6 @@ const inter = Inter({
   variable: "--font-inter",
   weight: "600",
 });
-
-export const metadata: Metadata = {
-  title: {
-    template: "%s | Elahiya Pro Language",
-    default: "Elahiya Pro Language",
-  },
-  description:
-    "Elahiya Pro Language school has been providing English languages, TOEFL, IELTS and French classes in Rudehen for 20 years.It is located at the 6th Bustan",
-  alternates: {
-    canonical: "https://elahiya.net",
-    languages: {
-      en: "https://elahiya.net/en",
-      fa: "https://elahiya.net/fa",
-    },
-  },
-};
 
 async function RootLayout({ children, params }: Layout) {
   const { locale } = await params;
