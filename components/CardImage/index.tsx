@@ -10,7 +10,7 @@ import { CardImageProps } from "./CardImageProps";
 
 export function CardImage({ title, text, imagePath }: CardImageProps) {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-[350px] hover:border-primary">
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription></CardDescription>
@@ -21,7 +21,7 @@ export function CardImage({ title, text, imagePath }: CardImageProps) {
           src={imagePath}
           alt={title}
           width={350}
-          height={200}
+          height={300}
           priority
         />
 
