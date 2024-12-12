@@ -1,0 +1,25 @@
+{
+  "Menu": {
+    "home": "Home",
+    "about": "About us",
+    "map": "Find us"
+  },
+  "Home": {
+    "title": "Fly your dreams with us",
+    "about": "About us",
+    "find": "Find us"
+  },
+  "About": {
+    "title": "About us",
+    "text": "Elahiya Pro Language school has been providing English languages, TOEFL, IELTS and French classes in Rudehen for 20 years.It is located at the 6th Bustan. The institute offers academic and professional programs for those who want to learn a new language or gain additional language expertise.",
+    "card1Title": "Strategies",
+    "card1Text": "ELA is dedicated to providing high quality language instruction at a reasonable price in a friendly and welcoming setting.",
+    "card2Title": "Goals",
+    "card2Text": "Our goal is to improve students’ Languages abilities for academic, career and every day success by the use of the best materials such as: back pack, top notch,summit, café crème at all levels containing: beginner, intermediate, upper intermediate and advanced, TOEFL and IELTS.",
+    "card3Title": "Communication",
+    "card3Text": "At ELA we strive to foster global communication and cross-cultural understanding while supporting the well-being of our students and team."
+  },
+  "Map": {
+    "title": "We are on 6th Bustan, Pasdaran St"
+  }
+}

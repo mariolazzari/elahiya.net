@@ -1,9 +1,11 @@
+import "../globals.css";
 import type { Metadata } from "next";
-import "./globals.css";
+import { getMessages } from "next-intl/server";
+import { NextIntlClientProvider } from "next-intl";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { Layout } from "@/types/Layout";
-import { Header } from "@/components/Header";
+import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer";
 
 const inter = Inter({
@@ -22,16 +24,21 @@ export const metadata: Metadata = {
   },
 };
 
-function RootLayout({ children }: Layout) {
+async function RootLayout({ children, params }: Layout) {
+  const { locale } = params;
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} ${inter.variable} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="flex flex-col items-center p-4 h-[calc(100dvh-100px)] overflow-y-auto">
-            {children}
-          </main>
-          <Footer />
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            <main className="flex flex-col items-center p-4 h-[calc(100dvh-100px)] overflow-y-auto">
+              {children}
+            </main>
+            <Footer />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>

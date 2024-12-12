@@ -1,5 +1,4 @@
-import { CardImage } from "@/components/CardImage";
-import { CardImageProps } from "@/components/CardImage/CardImageProps";
+import { CardImage, CardImageProps } from "@/components/CardImage";
 
 function AboutPage() {
   const cards: CardImageProps[] = [
@@ -22,7 +21,7 @@ function AboutPage() {
 
   return (
     <>
-      <div className="max-w-xl p-4 rounded-xl shadow-xl mx-auto my-4 bg-gradient-to-br from-background to-muted border border-muted hover:border-primary shadow-xl">
+      <div className="max-w-xl p-4 rounded-xl shadow-xl mx-auto my-4 bg-gradient-to-br from-background to-muted border border-muted hover:border-primary">
         <h2 className="text-4xl text-primary my-4 font-bold text-center">
           About us
         </h2>

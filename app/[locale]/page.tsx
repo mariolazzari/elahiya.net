@@ -2,9 +2,12 @@ import { Logo } from "@/components/Logo";
 import { Socials } from "@/components/Socials";
 import { Button } from "@/components/ui/button";
 import { Info, Map } from "lucide-react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 export default function Home() {
+  const t = useTranslations("Home");
+
   const buttons = [
     { label: "About us", href: "/about", icon: <Info /> },
     { label: "Find us", href: "/map", icon: <Map /> },
@@ -15,7 +18,7 @@ export default function Home() {
       <Logo size="medium" />
 
       <h1 className="text-5xl text-center font-semibold text-primary mb-4">
-        Fly your dreams with us
+        {t("title")}
       </h1>
 
       <Socials />
