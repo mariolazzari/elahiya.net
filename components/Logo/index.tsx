@@ -5,16 +5,14 @@ import ElahiyaImg from "@/public/images/elahiya.png";
 import { LogoProps } from "./LogoProps";
 
 export function Logo({ size = "small" }: LogoProps) {
-  const SIZE = size === "small" ? 64 : 96;
-
   return (
     <div className="flex flex-col p-4">
       <Image
         className="mx-auto rounded-full"
         src={LogoImg}
         alt="logo"
-        width={SIZE}
-        height={SIZE}
+        width={128}
+        height={128}
         priority
       />
       {size === "medium" && (

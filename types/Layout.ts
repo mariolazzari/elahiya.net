@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 export type Layout = Readonly<{
   children: ReactNode;
-  params: {
+  params: Promise<{
     locale: string;
-  };
+  }>;
 }>;

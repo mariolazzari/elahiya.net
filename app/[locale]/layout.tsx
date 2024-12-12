@@ -16,7 +16,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Elahiya Pro Language",
+  title: {
+    template: "%s | Elahiya Pro Language",
+    default: "Elahiya Pro Language",
+  },
   description:
     "Elahiya Pro Language school has been providing English languages, TOEFL, IELTS and French classes in Rudehen for 20 years.It is located at the 6th Bustan",
   alternates: {
@@ -25,7 +28,7 @@ export const metadata: Metadata = {
 };
 
 async function RootLayout({ children, params }: Layout) {
-  const { locale } = params;
+  const { locale } = await params;
   const messages = await getMessages();
 
   return (

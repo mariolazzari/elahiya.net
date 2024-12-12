@@ -1,5 +1,13 @@
 import { CardImage, CardImageProps } from "@/components/CardImage";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+
+export const metadata: Metadata = {
+  title: "About us",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 function AboutPage() {
   const t = useTranslations("About");

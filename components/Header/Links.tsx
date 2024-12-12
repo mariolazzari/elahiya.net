@@ -2,6 +2,7 @@ import { Link } from "@/i18n/routing";
 import { LinksProps } from "./LinksProps";
 import { Home, Info, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { DialogClose } from "@radix-ui/react-dialog";
 
 export function Links({ isDrawer = false }: LinksProps) {
   const t = useTranslations("Menu");
@@ -39,7 +40,15 @@ export function Links({ isDrawer = false }: LinksProps) {
             className="flex items-center gap-1 hover:text-primary"
             href={link.href}
           >
-            {link.icon} {link.label}
+            {isDrawer ? (
+              <DialogClose className="flex gap-2">
+                {link.icon} {link.label}
+              </DialogClose>
+            ) : (
+              <span className="flex gap-1">
+                {link.icon} {link.label}
+              </span>
+            )}
           </Link>
         </li>
       ))}
