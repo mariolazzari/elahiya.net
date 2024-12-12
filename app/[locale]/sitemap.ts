@@ -6,6 +6,12 @@ const sitemap = (): MetadataRoute.Sitemap => {
     lastModified: new Date(),
     changeFrequency: "daily",
     priority: 1,
+    alternates: {
+      languages: {
+        en: `https://elahiya.net/en${url}`,
+        fa: `https://elahiya.net/fa${url}`,
+      },
+    },
   }));
 
   return routes;

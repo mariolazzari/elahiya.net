@@ -23,7 +23,11 @@ export const metadata: Metadata = {
   description:
     "Elahiya Pro Language school has been providing English languages, TOEFL, IELTS and French classes in Rudehen for 20 years.It is located at the 6th Bustan",
   alternates: {
-    canonical: "https://elahiya.net/",
+    canonical: "https://elahiya.net",
+    languages: {
+      en: "https://elahiya.net/en",
+      fa: "https://elahiya.net/fa",
+    },
   },
 };
 
