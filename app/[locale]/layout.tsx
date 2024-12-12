@@ -34,7 +34,7 @@ async function RootLayout({ children, params }: Layout) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} ${inter.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <NextIntlClientProvider messages={messages}>
             <Header />
             <main className="flex flex-col items-center p-4 h-[calc(100dvh-100px)] overflow-y-auto">
