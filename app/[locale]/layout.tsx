@@ -7,6 +7,7 @@ import { Layout } from "@/types/Layout";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Metadata } from "next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,6 +15,22 @@ const inter = Inter({
   variable: "--font-inter",
   weight: "600",
 });
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Elahiya Pro Language",
+    default: "Elahiya Pro Language",
+  },
+  description:
+    "Elahiya Pro Language school has been providing English languages, TOEFL, IELTS and French classes in Rudehen for 20 years.It is located at the 6th Bustan",
+  alternates: {
+    canonical: "https://elahiya.net",
+    languages: {
+      en: "https://elahiya.net/en",
+      fa: "https://elahiya.net/fa",
+    },
+  },
+};
 
 async function RootLayout({ children, params }: Layout) {
   const { locale } = await params;
