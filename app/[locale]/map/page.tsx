@@ -1,17 +1,20 @@
 import { Map } from "@/components/Map";
+import { PageProps } from "@/types/PageProps";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
-export const metadata: Metadata = {
-  title: "Find us",
-  alternates: {
-    canonical: "/map",
-    languages: {
-      en: "https://elahiya.net/en/map",
-      fa: "https://elahiya.net/fa/map",
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: "Find us",
+    alternates: {
+      canonical: `https://elahiya.net/${locale}/map`,
     },
-  },
-};
+  };
+}
 
 function MapPage() {
   const t = useTranslations("Map");

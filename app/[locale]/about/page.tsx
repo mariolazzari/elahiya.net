@@ -1,17 +1,20 @@
 import { CardImage, CardImageProps } from "@/components/CardImage";
+import { PageProps } from "@/types/PageProps";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
-export const metadata: Metadata = {
-  title: "About us",
-  alternates: {
-    canonical: "/about",
-    languages: {
-      en: "https://elahiya.net/en/about",
-      fa: "https://elahiya.net/fa/about",
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+
+  return {
+    title: "About us",
+    alternates: {
+      canonical: `https://elahiya.net/${locale}/about`,
     },
-  },
-};
+  };
+}
 
 function AboutPage() {
   const t = useTranslations("About");
