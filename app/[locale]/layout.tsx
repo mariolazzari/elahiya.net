@@ -1,19 +1,21 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import { hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
 import "../globals.css";
-import { getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
-import { Inter } from "next/font/google";
-import { ThemeProvider } from "next-themes";
 import { Layout } from "@/types/Layout";
-import { Header } from "@/components/Header/Header";
+import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import { Metadata } from "next";
-
-const inter = Inter({
+import { Providers } from "@/components/Providers";
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-  weight: "600",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -33,25 +35,24 @@ export const metadata: Metadata = {
 };
 
 async function RootLayout({ children, params }: Layout) {
+  // Ensure that the incoming `locale` is valid
   const { locale } = await params;
-  const messages = await getMessages();
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <GoogleAnalytics gaId={process.env.GA_TRACKING_ID!} />
-      </head>
-
-      <body className={`${inter.variable} ${inter.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <NextIntlClientProvider messages={messages}>
-            <Header />
-            <main className="flex flex-col items-center p-4 h-[calc(100dvh-100px)] overflow-y-auto">
-              {children}
-            </main>
-            <Footer />
-          </NextIntlClientProvider>
-        </ThemeProvider>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <Providers locale={locale}>
+          <Navbar />
+          <main className="h-[calc(100dvh-100px)] overflow-y-auto p-4">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

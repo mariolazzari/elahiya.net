@@ -1,41 +1,15 @@
 "use client";
-
-// import { useLocale } from "next-intl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import MapGl, {
-  Marker,
-  NavigationControl,
-  FullscreenControl,
-  GeolocateControl,
-  ScaleControl,
-} from "react-map-gl";
+import dynamic from "next/dynamic";
 import { MapProps } from "./MapProps";
 
-export function Map({ apiKey, latitude, longitude }: MapProps) {
-  // locales
-  //  const locale = useLocale();
+const MyMap = dynamic(() => import("./Map").then(mod => mod.default), {
+  ssr: false,
+});
 
+export const MapWrapper = (props: MapProps) => {
   return (
-    <MapGl
-      mapboxAccessToken={apiKey}
-      style={{
-        width: "99%",
-        height: "500px",
-      }}
-      initialViewState={{
-        longitude,
-        latitude,
-        zoom: 11,
-      }}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
-      attributionControl={false}
-      // locale={{ locale }}
-    >
-      <Marker longitude={longitude} latitude={latitude} color="purple" />
-      <ScaleControl />
-      <NavigationControl />
-      <FullscreenControl />
-      <GeolocateControl />
-    </MapGl>
+    <div className="w-full h-[500px]">
+      <MyMap {...props} />
+    </div>
   );
-}
+};

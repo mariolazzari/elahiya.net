@@ -1,7 +1,14 @@
-import { CardImage, CardImageProps } from "@/components/CardImage";
+import Image from "next/image";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { getTranslations } from "next-intl/server";
 import { PageProps } from "@/types/PageProps";
 import { Metadata } from "next";
-import { useTranslations } from "next-intl";
 
 export async function generateMetadata({
   params,
@@ -16,42 +23,58 @@ export async function generateMetadata({
   };
 }
 
-function AboutPage() {
-  const t = useTranslations("About");
+async function AboutPage() {
+  const t = await getTranslations("About");
 
-  const cards: CardImageProps[] = [
+  const cards = [
     {
       title: t("card1Title"),
       text: t("card1Text"),
-      imagePath: "/images/card1.png",
+      image: "/card1.png",
     },
     {
       title: t("card2Title"),
       text: t("card2Text"),
-      imagePath: "/images/card2.png",
+      image: "/card2.png",
     },
     {
       title: t("card3Title"),
       text: t("card3Text"),
-      imagePath: "/images/card3.png",
+      image: "/card3.png",
     },
   ];
 
   return (
-    <>
-      <div className="max-w-xl p-4 rounded-xl shadow-xl mx-auto my-4 bg-gradient-to-br from-background to-muted border border-muted hover:border-primary">
-        <h2 className="text-4xl text-primary my-4 font-bold text-center">
-          {t("title")}
-        </h2>
-        <p className="text-justify">{t("text")}</p>
+    <section className="py-8">
+      <div className="flex flex-col items-center justify-center max-w-xl text-justify mx-auto gap-4 shadow-lg p-4">
+        <h2 className="text-3xl text-primary font-semibold">{t("title")}</h2>
+        <p>{t("text")}</p>
       </div>
 
-      <div className="my-4 flex justify-center items-center flex-wrap gap-16">
+      <div className="flex justify-center items-center flex-wrap gap-8 my-4">
         {cards.map(card => (
-          <CardImage key={card.title} {...card} />
+          <Card
+            className="w-[350px] hover:border hover:border-primary"
+            key={card.title}
+          >
+            <CardHeader>
+              <CardTitle>{card.title}</CardTitle>
+              <CardDescription></CardDescription>
+            </CardHeader>
+            <CardContent className="h-[450px] space-y-2">
+              <Image
+                src={card.image}
+                alt={card.title}
+                height={250}
+                width={300}
+                priority
+              />
+              <p>{card.text}</p>
+            </CardContent>
+          </Card>
         ))}
       </div>
-    </>
+    </section>
   );
 }
 

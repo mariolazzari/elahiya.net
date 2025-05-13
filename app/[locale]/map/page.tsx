@@ -1,4 +1,4 @@
-import { Map } from "@/components/Map";
+import { MapWrapper } from "@/components/Map";
 import { PageProps } from "@/types/PageProps";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
@@ -20,19 +20,20 @@ function MapPage() {
   const t = useTranslations("Map");
 
   // map settings
-  const apiKey = process.env.MAP_API_KEY;
   const lat = process.env.MAP_LAT;
   const lon = process.env.MAP_LON;
 
-  if (!apiKey || !lat || !lon) {
+  if (!lat || !lon) {
     throw new Error("Missing map settings");
   }
 
   return (
-    <>
-      <h2 className="text-4xl text-primary mx-auto my-4">{t("title")}</h2>
-      <Map apiKey={apiKey} latitude={+lat} longitude={+lon} />
-    </>
+    <div className="flex flex-col items-center justify-center  gap-4">
+      <h2 className="text-4xl text-primary mx-auto my-4 text-center">
+        {t("title")}
+      </h2>
+      <MapWrapper latitude={+lat} longitude={+lon} zoom={14} />
+    </div>
   );
 }
 
