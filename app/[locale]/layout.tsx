@@ -8,6 +8,7 @@ import { Layout } from "@/types/Layout";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
+import { SideBar } from "@/components/SideBar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -47,11 +48,12 @@ async function RootLayout({ children, params }: Layout) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers locale={locale}>
-          <Navbar />
+          <SideBar />
+          {/* <Navbar /> */}
           <main className="h-[calc(100dvh-100px)] overflow-y-auto p-4">
             {children}
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
