@@ -76,7 +76,7 @@ async function HomePage() {
   ];
 
   return (
-    <section className="flex flex-col items-center h-full gap-6 py-4">
+    <section className="flex flex-col items-center h-full gap-6 py-4 bg-primary-foreground">
       <Image
         className="rounded-full"
         src="/logo.png"

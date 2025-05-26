@@ -1,23 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 import { Layout } from "@/types/Layout";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
-import { SideBar } from "@/components/SideBar";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSidebar";
+import { geistMono, geistSans } from "../fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -48,12 +38,11 @@ async function RootLayout({ children, params }: Layout) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Providers locale={locale}>
-          <SideBar />
-          {/* <Navbar /> */}
-          <main className="h-[calc(100dvh-100px)] overflow-y-auto p-4">
+          <AppSidebar />
+          <main className="w-full h-screen overscroll-x-none overflow-y-auto">
+            <SidebarTrigger className="bg-transparent fixed" />
             {children}
           </main>
-          {/* <Footer /> */}
         </Providers>
       </body>
     </html>
