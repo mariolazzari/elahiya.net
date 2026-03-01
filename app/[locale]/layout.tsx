@@ -1,8 +1,9 @@
+import "../globals.css";
+import "leaflet/dist/leaflet.css";
 import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
-import "../globals.css";
 import { Layout } from "@/types/Layout";
 import { Providers } from "@/components/Providers";
 import { SidebarTrigger } from "@/components/ui/sidebar";

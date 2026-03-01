@@ -8,7 +8,7 @@ const MyMap = dynamic(() => import("./Map").then(mod => mod.default), {
 
 export const MapWrapper = (props: MapProps) => {
   return (
-    <div className="w-full h-[500px]">
+    <div className="w-full h-125">
       <MyMap {...props} />
     </div>
   );
